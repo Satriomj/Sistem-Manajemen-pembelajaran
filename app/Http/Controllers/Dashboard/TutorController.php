@@ -26,11 +26,14 @@ class TutorController extends Controller
                 [
                     'courses'
                 ],
-            )->paginate(10);
+            )->orderBy('name')
+            ->paginate(10);
         $courses = Course::query()
             ->orderBy('name')
             ->get();
-        $users = User::all();
+        $users = User::query()
+            ->orderBy('name')
+            ->get();
         return view('dashboard.tutor.index', compact('tutors', 'courses', 'users'));
     }
 
