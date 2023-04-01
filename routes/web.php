@@ -1,7 +1,9 @@
 <?php
 
-use App\Http\Controllers\Dashboard\TutorController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Dashboard\TutorController;
+use App\Http\Controllers\Dashboard\CourseController;
+use App\Http\Controllers\Dashboard\ModuleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,9 +26,23 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
 
     Route::as('dashboard.')->group(function () {
         Route::controller(TutorController::class)->prefix('tutor')->as('tutor.')->group(function () {
-            Route::get('/')->name('index');
-            Route::post('/')->name('store');
+            Route::get('/', 'index')->name('index');
+            Route::post('/', 'store')->name('store');
             Route::post('{tutor}/detach/{course}', 'detachCourse')->name('detach-course');
+        });
+
+        Route::controller(CourseController::class)->prefix('course')->as('course.')->group(function () {
+            Route::get('/', 'index')->name('index');
+            Route::post('/', 'store')->name('store');
+            Route::get('/{course}', 'show')->name('show');
+            Route::put('/{course}', 'update')->name('update');
+            Route::post('/{course}/detach/{tutor}', 'detachTutor')->name('detach-tutor');
+        });
+
+        Route::controller(ModuleController::class)->prefix('course/{course}/module')->as('course.module.')->group(function () {
+            Route::get('/', 'index')->name('index');
+            Route::post('/', 'store')->name('store');
+            Route::put('/{module}', 'update')->name('update');
         });
     });
 

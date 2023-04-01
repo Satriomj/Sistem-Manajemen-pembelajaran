@@ -38,27 +38,21 @@
             </li>
 
             <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="nav-icon fas fa-chalkboard-teacher nav-icon"></i>
+                <a href="{{ route('dashboard.course.index') }}" class="nav-link">
+                    <i class="nav-icon fas fa-book"></i>
                     <p>
-                        Tutor
-                        <i class="fas fa-angle-left right"></i>
+                        {{ __('Course') }}
                     </p>
                 </a>
-                <ul class="nav nav-treeview" style="display: none;">
-                    <li class="nav-item">
-                        <a href="{{ route('dashboard.tutor.index') }}" class="nav-link">
-                            <i class="fas fa-list nav-icon"></i>
-                            <p>List</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('dashboard.tutor.create') }}" class="nav-link">
-                            <i class="fas fa-plus nav-icon"></i>
-                            <p>Tambah</p>
-                        </a>
-                    </li>
-                </ul>
+            </li>
+
+            <li class="nav-item">
+                <a href="{{ route('dashboard.tutor.index') }}" class="nav-link">
+                    <i class="nav-icon fas fa-chalkboard-teacher"></i>
+                    <p>
+                        {{ __('Tutor') }}
+                    </p>
+                </a>
             </li>
         </ul>
     </nav>

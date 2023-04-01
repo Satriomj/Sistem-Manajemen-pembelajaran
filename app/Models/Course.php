@@ -15,6 +15,17 @@ class Course extends Model
 
     public function users()
     {
-        return $this->belongsToMany(Tutor::class, 'tutors')->using(Tutor::class);
+        return $this->belongsToMany(User::class, 'tutors', 'course_id', 'user_id', 'id', 'id')->withPivot(
+            [
+                'id',
+                'user_id',
+                'course_id',
+            ],
+        )->using(Tutor::class);
+    }
+
+    public function modules()
+    {
+        return $this->hasMany(Module::class);
     }
 }
