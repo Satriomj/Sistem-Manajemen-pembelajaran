@@ -18,6 +18,7 @@ class ModuleFactory extends Factory
     {
         return [
             //
+            'name'  =>  fake()->words(rand(2, 4), true)
         ];
     }
 }

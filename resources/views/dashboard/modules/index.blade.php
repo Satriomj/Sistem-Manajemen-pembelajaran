@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">{{ __('Course') }}</h1>
+                <h1 class="m-0">{{ __('Course') }} {{ $course->name . " " . __('Modules') }}</h1>
             </div><!-- /.col -->
         </div><!-- /.row -->
     </div><!-- /.container-fluid -->
@@ -21,17 +21,17 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#course">
-                            Add Course
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModule">
+                            Add Module
                         </button>
-                        <div class="modal fade" id="course" tabindex="-1" role="dialog" aria-labelledby="courseLabel"
-                            aria-hidden="true">
+                        <div class="modal fade" id="addModule" tabindex="-1" role="dialog"
+                            aria-labelledby="addModuleLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
-                                    <form action="{{ route('dashboard.course.store') }}" method="post">
+                                    <form action="{{ route('dashboard.course.module.store', $course) }}" method="post">
                                         @csrf
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="courseLabel">Add Course Form</h5>
+                                            <h5 class="modal-title" id="addModuleLabel">Add Module Form</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
@@ -59,51 +59,38 @@
                             <thead>
                                 <tr>
                                     <th>Name</th>
-                                    <th>Tutors Count</th>
-                                    <th>Tutors</th>
+                                    <th>Total Session</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse($courses as $course)
+                                @forelse($modules as $module)
                                 <tr>
-                                    <td>{{ $course->name }}</td>
-                                    <td>{{ $course->users_count }}</td>
-                                    <td>
-                                        <ul>
-                                            @forelse ($course->users as $user)
-                                            <li>{{ $user->name }}</li>
-                                            @empty
-                                            @endforelse
-                                        </ul>
-                                    </td>
+                                    <td>{{ $module->name }}</td>
+                                    <td>{{ $module->sessions_count }}</td>
                                     <td>
                                         <a role="button" class="btn btn-primary"
                                             href="{{ route('dashboard.course.module.index', $course) }}">
-                                            Modules Details
-                                        </a>
-
-                                        <a role="button" class="btn btn-secondary"
-                                            href="{{ route('dashboard.course.show', $course) }}">
-                                            Tutors Details
+                                            Session Details
                                         </a>
 
                                         <button type="button" class="btn btn-warning" data-toggle="modal"
-                                            data-target="#updateCourse">
+                                            data-target="#updateModule">
                                             Edit
                                         </button>
 
 
-                                        <div class="modal fade" id="updateCourse" tabindex="-1" role="dialog"
-                                            aria-labelledby="updateCourseLabel" aria-hidden="true">
+                                        <div class="modal fade" id="updateModule" tabindex="-1" role="dialog"
+                                            aria-labelledby="updateModuleLabel" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
-                                                    <form action="{{ route('dashboard.course.update', $course) }}"
+                                                    <form
+                                                        action="{{ route('dashboard.course.module.update', [$course,$module]) }}"
                                                         method="post">
                                                         @csrf
                                                         @method('PUT')
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title" id="updateCourseLabel">Update Course
+                                                            <h5 class="modal-title" id="updateModuleLabel">Update module
                                                                 Form
                                                             </h5>
                                                             <button type="button" class="close" data-dismiss="modal"
@@ -115,7 +102,7 @@
                                                             <div class="form-group">
                                                                 <label for="name">Name</label>
                                                                 <input type="text" name="name" id="name"
-                                                                    class="form-control" value="{{ $course->name }}">
+                                                                    class="form-control" value="{{ $module->name }}">
                                                             </div>
                                                         </div>
                                                         <div class="modal-footer">
@@ -138,7 +125,7 @@
                     <!-- /.card-body -->
 
                     <div class="card-footer clearfix">
-                        {{ $courses->links() }}
+                        {{ $modules->links() }}
                     </div>
                 </div>
 

@@ -39,9 +39,10 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
             Route::post('/{course}/detach/{tutor}', 'detachTutor')->name('detach-tutor');
         });
 
-        Route::controller(ModuleController::class)->prefix('module')->as('module.')->group(function () {
+        Route::controller(ModuleController::class)->prefix('course/{course}/module')->as('course.module.')->group(function () {
             Route::get('/', 'index')->name('index');
             Route::post('/', 'store')->name('store');
+            Route::put('/{module}', 'update')->name('update');
         });
     });
 

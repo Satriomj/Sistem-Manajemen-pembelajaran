@@ -23,4 +23,9 @@ class Module extends Model
     {
         return $this->hasMany(ModuleAttachment::class);
     }
+
+    public function sessions()
+    {
+        return $this->hasMany(Session::class);
+    }
 }
