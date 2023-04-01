@@ -30,7 +30,7 @@ class UserSeeder extends Seeder
         User::factory(100)->create();
 
         $tutorRole = Role::where('name', 'tutor')->first();
-        $tutors = User::factory(10)->create();
+        $tutors = User::factory(20)->create();
         $tutorRole->users()->attach($tutors);
     }
 }

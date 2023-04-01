@@ -13,8 +13,8 @@ class Course extends Model
         'name',
     ];
 
-    public function tutors()
+    public function users()
     {
-        return $this->hasMany(Tutor::class);
+        return $this->belongsToMany(Tutor::class, 'tutors')->using(Tutor::class);
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Dashboard\TutorController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,16 +14,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::redirect('/', 'dashboard');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::middleware('auth')->group(function () {
+Route::middleware('auth')->prefix('dashboard')->group(function () {
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::view('about', 'about')->name('about');
+
+    Route::as('dashboard.')->group(function () {
+        Route::controller(TutorController::class)->prefix('tutor')->as('tutor.')->group(function () {
+            Route::get('/')->name('index');
+            Route::post('/')->name('store');
+            Route::post('{tutor}/detach/{course}', 'detachCourse')->name('detach-course');
+        });
+    });
 
     Route::get('users', [\App\Http\Controllers\UserController::class, 'index'])->name('users.index');
 

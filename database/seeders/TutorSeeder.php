@@ -18,7 +18,7 @@ class TutorSeeder extends Seeder
         $tutors = User::roleIs('tutor')->get();
         $courses = Course::all();
         foreach ($tutors as $tutor) {
-            $tutor->tutors()->attach($courses->random(rand(1, 10)));
+            $tutor->courses()->attach($courses->random(rand(1, 10)));
         }
     }
 }

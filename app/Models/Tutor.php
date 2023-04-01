@@ -2,12 +2,15 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Tutor extends Model
+class Tutor extends Pivot
 {
     use HasFactory;
+
+    protected $table = 'tutors';
 
     protected $fillable = [
         'user_id',

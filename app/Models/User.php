@@ -44,9 +44,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function tutors()
+    public function courses()
     {
-        return $this->hasMany(Tutor::class);
+        return $this->belongsToMany(Course::class, 'tutors')->using(Tutor::class);
     }
 
     public function roles()
@@ -60,5 +60,4 @@ class User extends Authenticatable
             $query->where('name', $roleName);
         });
     }
-
 }
