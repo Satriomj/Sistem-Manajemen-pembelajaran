@@ -46,7 +46,13 @@ class User extends Authenticatable
 
     public function courses()
     {
-        return $this->belongsToMany(Course::class, 'tutors')->using(Tutor::class);
+        return $this->belongsToMany(Course::class, 'tutors', 'user_id', 'course_id', 'id', 'id')->withPivot(
+            [
+                'id',
+                'user_id',
+                'course_id',
+            ],
+        )->using(Tutor::class);
     }
 
     public function roles()
