@@ -14,9 +14,9 @@ class Module extends Model
         'tutor_id',
     ];
 
-    public function tutor()
+    public function course()
     {
-        return $this->belongsTo(Tutor::class);
+        return $this->belongsTo(Course::class);
     }
 
     public function attachments()

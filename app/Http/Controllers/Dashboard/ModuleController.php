@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Course;
+use App\Models\Module;
 use Illuminate\Http\Request;
 
 class ModuleController extends Controller
@@ -12,10 +13,11 @@ class ModuleController extends Controller
 
     public function index()
     {
-        $courses = Course::query()
-            ->withCount(['users', 'modules'])
-            ->paginate(10);
-
-        
+        $modules = Module::query()
+            ->with(
+                [
+                    'tutor',
+                ],
+            )->paginate(10);
     }
 }

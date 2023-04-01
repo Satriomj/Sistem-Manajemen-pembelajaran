@@ -1,9 +1,10 @@
 <?php
 
 use App\Models\Tutor;
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use App\Models\Module;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -16,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('tutor_id')->references('id')->on('tutors')->constrained()->cascadeOnDelete();
             // $table->foreignIdFor(Tutor::class)->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(Module::class)->constrained()->cascadeOnDelete();
             $table->date('date');
             $table->time('start_time');
             $table->time('end_time');

@@ -23,4 +23,9 @@ class Course extends Model
             ],
         )->using(Tutor::class);
     }
+
+    public function modules()
+    {
+        return $this->hasMany(Module::class);
+    }
 }
