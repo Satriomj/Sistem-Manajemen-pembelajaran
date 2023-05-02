@@ -22,7 +22,7 @@
                 <div class="card">
                     <div class="card-header">
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModule">
-                            Add Module
+                            Tambah Modul
                         </button>
                         <div class="modal fade" id="addModule" tabindex="-1" role="dialog"
                             aria-labelledby="addModuleLabel" aria-hidden="true">

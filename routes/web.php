@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dashboard\TutorController;
 use App\Http\Controllers\Dashboard\CourseController;
 use App\Http\Controllers\Dashboard\ModuleController;
+use App\Http\Controllers\user\UserHomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +21,13 @@ Route::redirect('/', 'dashboard');
 
 Auth::routes();
 
+
+
 Route::middleware('auth')->prefix('dashboard')->group(function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::view('about', 'about')->name('about');
+    Route::get('/index', [App\Http\Controllers\User\UserHomeController::class, 'index'])->name('viewsuser.home');
+    Route::get('/course', [App\Http\Controllers\User\CourseUserController::class, 'index'])->name('course');
 
     Route::as('dashboard.')->group(function () {
         Route::controller(TutorController::class)->prefix('tutor')->as('tutor.')->group(function () {

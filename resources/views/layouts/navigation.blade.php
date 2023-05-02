@@ -11,6 +11,40 @@
     <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <li class="nav-item">
+                <a href="{{ route('viewsuser.home') }}" class="nav-link">
+                    <i class="nav-icon fas fa-th"></i>
+                    <p>
+                        {{ __('Dashboard') }}
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('viewsuser.home') }}" class="nav-link">
+                    <i class="nav-icon fas fa-th"></i>
+                    <p>
+                        {{ __('Calendar') }}
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('viewsuser.home') }}" class="nav-link">
+                    <i class="nav-icon fas fa-book"></i>
+                    <p>
+                        {{ __('Course') }}
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('viewsuser.home') }}" class="nav-link">
+                    <i class="nav-icon fas fa-chalkboard-teacher"></i>
+                    <p>
+                        {{ __('Tutor') }}
+                    </p>
+                </a>
+            </li>
+            
+            @if (Auth::user()->role == 'admin')
+            <li class="nav-item">
                 <a href="{{ route('home') }}" class="nav-link">
                     <i class="nav-icon fas fa-th"></i>
                     <p>
@@ -54,6 +88,15 @@
                     </p>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="{{ route('dashboard.tutor.index') }}" class="nav-link">
+                    <i class="nav-icon fas fa-chalkboard-teacher"></i>
+                    <p>
+                        {{ __('Pepek') }}
+                    </p>
+                </a>
+            </li>
+            @endif
         </ul>
     </nav>
     <!-- /.sidebar-menu -->

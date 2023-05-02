@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">{{ __('Tutors') }}</h1>
+                <h1 class="m-0">{{ __('Manajemen Data Penutor') }}</h1>
             </div><!-- /.col -->
         </div><!-- /.row -->
     </div><!-- /.container-fluid -->
@@ -22,7 +22,7 @@
                 <div class="card">
                     <div class="card-header">
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addTutor">
-                            Add Tutor
+                            Tambah Penutor
                         </button>
                         <div class="modal fade" id="addTutor" tabindex="-1" role="dialog"
                             aria-labelledby="addTutorLabel" aria-hidden="true">
@@ -71,13 +71,13 @@
                     <div class="card-body p-0">
 
                         <table class="table">
-                            <caption>Table of Tutors</caption>
+                            <caption>Tabel Data Penutor</caption>
                             <thead>
                                 <tr>
-                                    <th>Name</th>
+                                    <th>Nama Penutor</th>
                                     <th>Email</th>
-                                    <th>Courses</th>
-                                    <th>Actions</th>
+                                    <th>Kelas</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -96,7 +96,7 @@
                                     <td>
                                         <button type="button" class="btn btn-primary" data-toggle="modal"
                                             data-target="#seeDetails{{ $loop->index }}">
-                                            Details
+                                        Detail 
                                         </button>
                                         <div class="modal fade" id="seeDetails{{ $loop->index }}" tabindex="-1"
                                             role="dialog" aria-labelledby="seeDetails{{ $loop->index }}Label"
@@ -141,7 +141,7 @@
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary"
-                                                            data-dismiss="modal">Close</button>
+                                                            data-dismiss="modal">Batal</button>
                                                         <button type="submit" class="btn btn-primary">Submit</button>
                                                     </div>
                                                 </div>

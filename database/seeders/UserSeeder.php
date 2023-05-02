@@ -21,7 +21,8 @@ class UserSeeder extends Seeder
                 'email'         =>  'admin@admin',
                 'password'      =>  bcrypt('password'),
                 'nim'           =>  '000000000',
-                'generation'    =>  '2018'
+                'generation'    =>  '2018',
+                'role'          =>  'admin',
             ],
         ];
         foreach ($users as $user) {

@@ -22,7 +22,6 @@
                 <div class="card">
                    
                     <div class="card-body p-0">
-
                         <table class="table">
                             <caption>Tabel Kelas </caption>
                             <thead>
@@ -30,6 +29,7 @@
                                     <th>Name Kelas</th>
                                     <th>Jumlah Penutor</th>
                                     <th>Nama Penutor</th>
+                                    <th>aksi</th>
                                 </tr>
                             </thead>
                             <tbody>

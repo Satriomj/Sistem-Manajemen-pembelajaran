@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">{{ __('Users') }}</h1>
+                    <h1 class="m-0">{{ __('Data Users') }}</h1>
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -20,7 +20,7 @@
                 <div class="col-lg-12">
 
                     <div class="alert alert-info">
-                        Sample table page
+                        Tabel Data User
                     </div>
 
                     <div class="card">

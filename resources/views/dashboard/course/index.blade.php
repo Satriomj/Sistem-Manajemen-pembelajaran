@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">{{ __('Course') }}</h1>
+                <h1 class="m-0">{{ __('Manajemen Mata Kuliah ') }}</h1>
             </div><!-- /.col -->
         </div><!-- /.row -->
     </div><!-- /.container-fluid -->
@@ -22,7 +22,7 @@
                 <div class="card">
                     <div class="card-header">
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#course">
-                            Add Course
+                            Tambah Mata Kuliah
                         </button>
                         <div class="modal fade" id="course" tabindex="-1" role="dialog" aria-labelledby="courseLabel"
                             aria-hidden="true">
@@ -55,13 +55,13 @@
                     <div class="card-body p-0">
 
                         <table class="table">
-                            <caption>Table of Courses</caption>
+                            <caption>Tabel Kelas </caption>
                             <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Tutors Count</th>
-                                    <th>Tutors</th>
-                                    <th>Actions</th>
+                                    <th>Name Kelas</th>
+                                    <th>Jumlah Penutor</th>
+                                    <th>Nama Penutor</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -80,17 +80,17 @@
                                     <td>
                                         <a role="button" class="btn btn-primary"
                                             href="{{ route('dashboard.course.module.index', $course) }}">
-                                            Modules Details
+                                            List Modul
                                         </a>
 
                                         <a role="button" class="btn btn-secondary"
                                             href="{{ route('dashboard.course.show', $course) }}">
-                                            Tutors Details
+                                            List Penutor
                                         </a>
 
                                         <button type="button" class="btn btn-warning" data-toggle="modal"
                                             data-target="#updateCourse">
-                                            Edit
+                                            Ubah Data
                                         </button>
 
 

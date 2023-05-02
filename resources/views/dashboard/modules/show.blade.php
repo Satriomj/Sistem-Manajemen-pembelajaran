@@ -152,7 +152,7 @@
                                             method="POST">
                                             @csrf
                                             <button type="submit" class="btn btn-danger">
-                                                Remove Tutor
+                                                Hapus Tutor
                                             </button>
                                         </form>
                                     </td>
