@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">{{ __('Manajemen Mata Kuliah ') }}</h1>
+                <h1 class="m-0">{{ __('Course') }} {{ $course->name . " " . __('Modules') }}</h1>
             </div><!-- /.col -->
         </div><!-- /.row -->
     </div><!-- /.container-fluid -->
@@ -20,31 +20,21 @@
             <div class="col-lg-12">
 
                 <div class="card">
-                   
                     <div class="card-body p-0">
+
                         <table class="table">
-                            <caption>Tabel Kelas </caption>
+                            <caption>Table of Courses</caption>
                             <thead>
                                 <tr>
-                                    <th>Name Kelas</th>
-                                    <th>Jumlah Penutor</th>
-                                    <th>Nama Penutor</th>
+                                    <th>Name</th>
+                                    <th>Total Session</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse($courses as $course)
+                                @forelse($modules as $module)
                                 <tr>
-                                    <td>{{ $course->name }}</td>
-                                    <td>{{ $course->users_count }}</td>
-                                    <td>
-                                        <ul>
-                                            @forelse ($course->users as $user)
-                                            <li>{{ $user->name }}</li>
-                                            @empty
-                                            @endforelse
-                                        </ul>
-                                    </td>
-                                   
+                                    <td>{{ $module->name }}</td>
+                                    <td>{{ $module->sessions_count }}</td>
                                 </tr>
                                 @empty
                                 @endforelse
@@ -54,7 +44,7 @@
                     <!-- /.card-body -->
 
                     <div class="card-footer clearfix">
-                        {{ $courses->links() }}
+                        {{ $modules->links() }}
                     </div>
                 </div>
 

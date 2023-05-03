@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">{{ __('Manajemen Mata Kuliah ') }}</h1>
+                <h1 class="m-0">{{ __(' Mata Kuliah ') }}</h1>
             </div><!-- /.col -->
         </div><!-- /.row -->
     </div><!-- /.container-fluid -->
@@ -22,6 +22,7 @@
                 <div class="card">
                    
                     <div class="card-body p-0">
+
                         <table class="table">
                             <caption>Tabel Kelas </caption>
                             <thead>
@@ -29,7 +30,7 @@
                                     <th>Name Kelas</th>
                                     <th>Jumlah Penutor</th>
                                     <th>Nama Penutor</th>
-                                    <th>aksi</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -45,7 +46,13 @@
                                             @endforelse
                                         </ul>
                                     </td>
-                                   
+                                    <td>
+                                        <a role="button" class="btn btn-primary"
+                                            href="{{ route('viewsuser.courselist', $course) }}">
+                                            Lihat Modul
+                                        </a>
+
+                                    </td>
                                 </tr>
                                 @empty
                                 @endforelse

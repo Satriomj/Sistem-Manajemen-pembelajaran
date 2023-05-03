@@ -27,7 +27,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{ route('viewsuser.home') }}" class="nav-link">
+                <a href="{{ route('viewsuser.course') }}" class="nav-link">
                     <i class="nav-icon fas fa-book"></i>
                     <p>
                         {{ __('Course') }}
@@ -35,10 +35,10 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{ route('viewsuser.home') }}" class="nav-link">
+                <a href="{{ route('profile.show') }}" class="nav-link">
                     <i class="nav-icon fas fa-chalkboard-teacher"></i>
                     <p>
-                        {{ __('Tutor') }}
+                        {{ __('Profile') }}
                     </p>
                 </a>
             </li>
@@ -88,14 +88,7 @@
                     </p>
                 </a>
             </li>
-            <li class="nav-item">
-                <a href="{{ route('dashboard.tutor.index') }}" class="nav-link">
-                    <i class="nav-icon fas fa-chalkboard-teacher"></i>
-                    <p>
-                        {{ __('Pepek') }}
-                    </p>
-                </a>
-            </li>
+           
             @endif
         </ul>
     </nav>
